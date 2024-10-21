@@ -1,23 +1,23 @@
 
 # PenguinExpress Shipping Application
 
-PenguinExpress is a Python-based application for managing shipping data. It is designed to handle parcel delivery logistics, focusing on deliveries within the Java island. This app allows users to create, edit, display, and manage shipping data efficiently.
+PenguinExpress adalah aplikasi berbasis Python untuk mengelola data pengiriman. Aplikasi ini dirancang untuk menangani logistik pengiriman paket, dengan fokus pada pengiriman di pulau Jawa. Aplikasi ini memungkinkan pengguna untuk membuat, mengedit, menampilkan, dan mengelola data pengiriman secara efisien.
 
-## Features
+## Fitur
 
 - **Data Entry and Management**:
-  - Create new shipping records.
-  - Edit existing shipping records, including address, weight, delivery status, and shipping costs.
-  - View all or individual shipping records.
-  - Filtering and sorting shipping records
-  - Delete shipping records.
+  - Membuat data pengiriman baru.
+  - Mengedit data pengiriman yang sudah ada, termasuk alamat, berat, status pengiriman, dan biaya pengiriman.
+  - Melihat semua atau masing-masing data pengiriman.
+  - Memfilter dan menyortir data pengiriman
+  - Menghapus data pengiriman.
 
-- **Cost Calculation**:
-  - Automatically calculates shipping costs based on the weight and distance between cities.
-
-- **Security**:
-  - Option to set a password for secure access to the main menu.
-
+- **Penghitungan Biaya**:
+  - Menghitung biaya pengiriman secara otomatis berdasarkan berat dan jarak antar kota.
+    
+- **Keamanan**:
+  - Opsi untuk menetapkan kata sandi untuk akses aman ke menu utama.
+  - 
 ### Prerequisites
 
 - Python 3.x
