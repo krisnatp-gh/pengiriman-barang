@@ -126,10 +126,6 @@ koordinat_kota = {'Kab Banyuwangi': (114.3669444, -8.2186111),
  'Kota Tangerang Selatan': (106.7180556, -6.2888889),
  'Kab Pangandaran': (108.35, -7.3333333)}
 
-today_date = datetime.datetime.now()
-delta_time = [3, 5, 1, 0, 2, 0, 0] # Untuk tanggal pengiriman
-delta_time = [datetime.timedelta(days=day) for day in delta_time]
-
 date_format = "%Y-%m-%d" #Tahun-Bulan-Tanggal
 
 id_pengiriman = [98, 101, 105, 107, 108, 109, 110] # Primary key; tidak diisi di awal; korespon dengan digit sesudah PE pada nomor resi; eg: PE150 -> id_pengiriman = 150 
