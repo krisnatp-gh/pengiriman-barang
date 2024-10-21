@@ -264,7 +264,7 @@ def input_kota():
     if len(list_sugesti_kota) == 0 :
         raise Exception("Error. Daerah ini tidak ada dalam database.")
     print(f"Pilihan kota: {list_sugesti_kota}")
-    kota_pilih = input("Pilih salah kota/kabupaten dari pilihan di atas: ").title()
+    kota_pilih = input("Pilih salah satu kota/kabupaten dari pilihan di atas: ").title()
     if kota_pilih not in list_sugesti_kota:
         raise Exception("Error. Daerah ini tidak ada dalam database.")
     return kota_pilih
