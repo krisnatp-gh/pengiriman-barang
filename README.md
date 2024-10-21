@@ -25,3 +25,7 @@ PenguinExpress is a Python-based application for managing shipping data. It is d
 - Python 3.x
 - `tabulate` module (for data display)
 - `datetime` module (standard library)
+
+
+
+![image](https://github.com/user-attachments/assets/18b64d64-0726-4831-bcd8-d9251b704d24)
