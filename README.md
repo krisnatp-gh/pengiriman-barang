@@ -1,7 +1,7 @@
 
 # PenguinExpress Shipping Application
 
-PenguinExpress adalah aplikasi berbasis Python untuk mengelola data pengiriman. Aplikasi ini dirancang untuk petugas untuk menangani logistik pengiriman paket, dengan fokus pada pengiriman di pulau Jawa.
+PenguinExpress adalah aplikasi berbasis Python untuk simulasi pengelolaan data pengiriman. Aplikasi ini dirancang untuk petugas untuk menangani logistik pengiriman paket, dengan fokus pada pengiriman di pulau Jawa.
 
 # Fitur
 
