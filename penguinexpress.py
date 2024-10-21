@@ -260,12 +260,12 @@ def cari_kota(kota_input):
 @infinite_looper
 def input_kota():
     kota_input = input("Masukkan kota/kabupaten: ").title()
-    list_cari_kota = cari_kota(kota_input)
-    if len(list_cari_kota) == 0 :
+    list_sugesti_kota = cari_kota(kota_input)
+    if len(list_sugesti_kota) == 0 :
         raise Exception("Error. Daerah ini tidak ada dalam database.")
-    print(f"Pilihan kota: {[kota for kota in list_cari_kota]}")
+    print(f"Pilihan kota: {[kota for kota in list_sugesti_kota]}")
     kota_pilih = input("Masukkan kota/kabupaten: ").title()
-    if kota_pilih not in list_cari_kota:
+    if kota_pilih not in list_sugesti_kota:
         raise Exception("Error. Daerah ini tidak ada dalam database.")
     return kota_pilih
 
