@@ -18,7 +18,7 @@ PenguinExpress adalah aplikasi berbasis Python untuk simulasi pengelolaan data p
     
 - **Keamanan**:
   - Opsi untuk menetapkan kata sandi untuk akses aman ke menu utama.
-  - 
+
 ### *Prerequisites*
 
 - *Python 3.1x and above*
