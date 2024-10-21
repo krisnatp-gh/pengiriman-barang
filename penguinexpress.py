@@ -144,7 +144,7 @@ nomor_penerima = ['0814000777', '0820240024', '08564000700', '08112233456', '081
 berat_barang = [1, 0, 2, 10, 1, 10, 10]
 ## Kode jenis_barang: 1: Document | 2: Food | 3: Clothing | 4: Electronics | 5: Fragile | 6: Others"
 jenis_barang = [4, 1, 2, 5, 3, 5, 5]
-biaya = [12000.0, 15000.0, 22000.0, 84000.0, 14000.0, 84000.0, 84000.0] # Tidak diisi di awal
+biaya = [9000.0, 11000.0, 19000.0, 86000.0, 11000.0, 86000.0, 86000.0] # Tidak diisi di awal
 status = ['IN WAREHOUSE', 'DELIVERED', 'ON-PROCESS', 'ON-PROCESS', 'ON-PROCESS', 'ON-PROCESS', 'ON-PROCESS'] # Tidak diisi di awal
 # Sisanya wajib diisi
 
@@ -168,7 +168,7 @@ kata_sandi = None
 panjang_maks_kolom = [4, 10, 10, 10, 10, 10, 8, 5, 4, 7, 10]
 panjang_maks_kolom_konfirmasi_penambahan_data = [10, 10, 10, 10, 10, 10, 5, 4, 7]
 price_per_distance = 527.29 # Dari trial and error
-base_price = 7500
+base_price = 8000
 
 
 
@@ -190,7 +190,7 @@ def tarif_pengiriman(jarak, berat, price_per_distance, base_price):
         faktor_berat = 1
     else:
         faktor_berat = berat
-    tarif = round((price_per_distance*jarak + base_price)/1000,0) * 1000 * faktor_berat + 4000
+    tarif = round(((price_per_distance*jarak + base_price) *  faktor_berat) / 1000, 0) * 1000
     return tarif
 
 def infinite_looper(func):
@@ -250,12 +250,24 @@ def input_no_penerima():
     return input_nonempty_string("Masukkan no. telefon penerima: ")
     
 
+def cari_kota(kota_input):
+    temp_list = []
+    for kota_suggest in koordinat_kota:
+        if kota_input.title() in kota_suggest:
+            temp_list.append(kota_suggest)
+    return temp_list
+
 @infinite_looper
 def input_kota():
-    kota = input("Masukkan kota/kabupaten: ").title()
-    if kota not in koordinat_kota:
+    kota_input = input("Masukkan kota/kabupaten: ").title()
+    list_cari_kota = cari_kota(kota_input)
+    if len(list_cari_kota) == 0 :
         raise Exception("Error. Daerah ini tidak ada dalam database.")
-    return kota
+    print(f"Pilihan kota: {[kota for kota in list_cari_kota]}")
+    kota_pilih = input("Masukkan kota/kabupaten: ").title()
+    if kota_pilih not in list_cari_kota:
+        raise Exception("Error. Daerah ini tidak ada dalam database.")
+    return kota_pilih
 
 @infinite_looper
 def input_jenis_barang():
@@ -350,29 +362,31 @@ def input_kolom():
     else:
         return kolom.lower()
     
-def filtering_func(value, data_pengiriman, kolom):
+def filtering_func(value, tabel, kolom):
     ## Untuk filtering
     ## Bukan decorator.
     def inner_filtering_func(indeks):
         if type(value) == str:
-            return value.lower() in data_pengiriman[kolom][indeks].lower()
+            return value.lower() in tabel[kolom][indeks].lower()
         else:
-            return value == data_pengiriman[kolom][indeks]
+            return value == tabel[kolom][indeks]
     return inner_filtering_func
 
-def get_filtered_indeks(value, data_pengiriman, kolom):
-    return list(filter(filtering_func(value, data_pengiriman, kolom), range(len(data_pengiriman['id']))))
+def get_filtered_indeks(value, tabel, kolom):
+    firstcol = list(tabel.keys())[0]
+    return list(filter(filtering_func(value, tabel, kolom), range(len(tabel[firstcol]))))
 
-def sorting_func(data_pengiriman, kolom):
+def sorting_func(tabel, kolom):
     ## Untuk membandingkan nilai-nilai pada kolom sedemikian rupa hingga indeksnya bisa diurutkan berdasarkan nilai-nilai tersebut.
     ## Bukan decorator.
     def inner_sorting_func(indeks):
-        return data_pengiriman[kolom][indeks]
+        return tabel[kolom][indeks]
     return inner_sorting_func
 
-def get_sorted_indeks(data_pengiriman, kolom, is_descending=False):
+def get_sorted_indeks(tabel, kolom, is_descending=False):
+    firstcol = list(tabel.keys())[0]
     ## Tidak dikonversi menjadi list karena output-nya sudah berupa list
-    return sorted(range(len(data_pengiriman['id'])), key=sorting_func(data_pengiriman, kolom), reverse=is_descending)
+    return sorted(range(len(tabel[firstcol])), key=sorting_func(tabel, kolom), reverse=is_descending)
     
 def display_n_data(data_pengiriman, list_indeks):    
     temp_dict = {key:[data_pengiriman[key][indeks] for indeks in list_indeks] for key in data_pengiriman}
@@ -423,7 +437,7 @@ def display_data(data_pengiriman):
             display_all_data(data_pengiriman)
             return continue_token
         case 3:
-            searchable_columns = ["sender", "recipient", "address", "city", "type", "status"]
+            searchable_columns = ["sender", "recipient", "address", "city", "weight", "type", "status"]
             print(f"Kolom yang bisa dicari: | {' | '.join(searchable_columns)} |")
             kolom = input_kolom()
             if kolom == None: # input_kolom() -> 'BATAL'
@@ -439,7 +453,7 @@ def display_data(data_pengiriman):
                 display_n_data(data_pengiriman, filtered_indeks)
                 return continue_token
         case 4:
-            sortable_columns = ['id', 'delivery_date', 'weight', 'cost']
+            sortable_columns = ['id', 'delivery_date', 'sender', 'sender_no', 'city', 'recipient', 'recipient_no' 'weight', 'type', 'cost', 'status']
             print(f"Kolom yang bisa digunakan untuk pengurutan: | {' | '.join(sortable_columns)} |")
             kolom = input_kolom()
             if kolom == None: # Input = 'BATAL'
@@ -779,6 +793,7 @@ def entry_menu():
                 return continue_token
         case _:
             raise Exception("Invalid input. Tolong ulangi input.")
+
 
 
 
