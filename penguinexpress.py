@@ -310,7 +310,7 @@ map_kolom_input = {'id': input_id_pengiriman,
 kolom_input_saat_pembuatan_data = ['sender', 'sender_no', 'address', 'city', 'recipient', 'recipient_no', 'weight', 'type']
 
 def find_duplicate_data(input_data, data_pengiriman):
-    ## Print seluruh data duplikat dan return True (jika ditemukan)
+    ## Print seluruh data possible duplikat dan return True (jika ditemukan)
     ## Return False otherwise
     temp_dict = {key: [] for key in data_pengiriman}
     
@@ -345,10 +345,10 @@ def input_kolom():
     kolom = input("Masukkan nama kolom (ketik BATAL untuk kembali ke menu sebelumnya): ")
     if kolom.upper() == 'BATAL':
         return
-    elif kolom not in data_pengiriman:
+    elif kolom.lower() not in data_pengiriman:
         raise Exception("Error. Kolom tidak ditemukkan.")
     else:
-        return kolom
+        return kolom.lower()
     
 def filtering_func(value, data_pengiriman, kolom):
     ## Untuk filtering
@@ -779,7 +779,6 @@ def entry_menu():
                 return continue_token
         case _:
             raise Exception("Invalid input. Tolong ulangi input.")
-
 
 
 
