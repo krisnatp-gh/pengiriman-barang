@@ -18,11 +18,12 @@ PenguinExpress adalah aplikasi berbasis Python untuk simulasi pengelolaan data p
     
 - **Keamanan**:
   - Opsi untuk menetapkan kata sandi untuk akses aman ke menu utama.
-### Prerequisites
+  - 
+### *Prerequisites*
 
-- Python 3.x
-- `tabulate` module (for data display)
-- `datetime` module (standard library)
+- Python 3.1x and above
+- `tabulate` *module* (untuk *display* data)
+- `datetime` *module* (*standard library*)
 
 Adapun flowchart untuk fitur utama CRUD (dan setting) dalam aplikasi ini adalah sebagai berikut:
 
