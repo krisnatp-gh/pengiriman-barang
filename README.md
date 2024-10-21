@@ -3,9 +3,9 @@
 
 PenguinExpress adalah aplikasi berbasis Python untuk mengelola data pengiriman. Aplikasi ini dirancang untuk petugas untuk menangani logistik pengiriman paket, dengan fokus pada pengiriman di pulau Jawa.
 
-## Fitur
+# Fitur
 
-- ## *Data Entry and Management*:
+- **Data Entry and Management**:
   - Membuat data pengiriman baru.
   - Mengedit data pengiriman yang sudah ada, termasuk alamat, berat, status pengiriman, dan biaya pengiriman.
   - Input kota pengiriman dengan mudah.
@@ -13,10 +13,10 @@ PenguinExpress adalah aplikasi berbasis Python untuk mengelola data pengiriman. 
   - Memfilter dan menyortir data pengiriman
   - Menghapus data pengiriman.
 
-- ## Penghitungan Biaya:
+- **Penghitungan Biaya**:
   - Menghitung biaya pengiriman secara otomatis berdasarkan berat dan jarak antar kota.
     
-- ##Keamanan:
+- **Keamanan**:
   - Opsi untuk menetapkan kata sandi untuk akses aman ke menu utama.
 ### Prerequisites
 
