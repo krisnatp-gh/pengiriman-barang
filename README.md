@@ -21,11 +21,11 @@ PenguinExpress adalah aplikasi berbasis Python untuk simulasi pengelolaan data p
   - 
 ### *Prerequisites*
 
-- Python 3.1x and above
+- *Python 3.1x and above*
 - `tabulate` *module* (untuk *display* data)
 - `datetime` *module* (*standard library*)
 
-Adapun flowchart untuk fitur utama CRUD (dan setting) dalam aplikasi ini adalah sebagai berikut:
+Adapun *flowchart* untuk fitur utama CRUD (dan setting) dalam aplikasi ini adalah sebagai berikut:
 
 ![image](https://github.com/user-attachments/assets/9ee605fb-0492-494b-8488-90aa9a8c69bf)
 
