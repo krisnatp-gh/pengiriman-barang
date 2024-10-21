@@ -24,6 +24,7 @@ PenguinExpress adalah aplikasi berbasis Python untuk mengelola data pengiriman. 
 - `tabulate` module (for data display)
 - `datetime` module (standard library)
 
+Adapun flowchart untuk fitur utama CRUD (dan setting) dalam aplikasi ini adalah sebagai berikut:
 
 ![image](https://github.com/user-attachments/assets/9ee605fb-0492-494b-8488-90aa9a8c69bf)
 
